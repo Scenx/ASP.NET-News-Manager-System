@@ -1,0 +1,24 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="mainMaster.master.cs" Inherits="mainMaster" %>
+
+<%@ Register Src="~/UserControl/head.ascx" TagName="head" TagPrefix="uc1" %>
+<%@ Register Src="~/UserControl/foot.ascx" TagName="foot" TagPrefix="uc2" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="Stylesheet" type="text/css" href="css/Style.css" />
+</head>
+<body  class="tempbody">
+    <form id="form1" runat="server">
+    <div class ="tbody">
+    <uc1:head ID="head" runat="server" />
+    </div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    <div class ="middle"></div>
+    </asp:ContentPlaceHolder>
+    <div class ="footer">
+    <uc2:foot ID="foot" runat="server" />
+    </div>
+    </form>
+</body>
+</html>

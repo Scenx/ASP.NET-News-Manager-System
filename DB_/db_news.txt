@@ -1,0 +1,59 @@
+USE [db_news]
+GO
+/****** Object:  Table [dbo].[tb_User]    Script Date: 06/27/2017 18:12:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[tb_User](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](50) NOT NULL,
+	[PassWord] [varchar](50) NOT NULL,
+	[Date] [datetime] NOT NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[tb_User] ON
+INSERT [dbo].[tb_User] ([ID], [Name], [PassWord], [Date]) VALUES (4, N'admin', N'admin', CAST(0x00009BEE00000000 AS DateTime))
+SET IDENTITY_INSERT [dbo].[tb_User] OFF
+/****** Object:  Table [dbo].[tb_News]    Script Date: 06/27/2017 18:12:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[tb_News](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Title] [varchar](50) NOT NULL,
+	[Content] [varchar](2000) NOT NULL,
+	[Categories] [varchar](50) NOT NULL,
+	[Type] [varchar](50) NOT NULL,
+	[IssueDate] [datetime] NOT NULL,
+ CONSTRAINT [PK_tb_News] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[tb_News] ON
+INSERT [dbo].[tb_News] ([ID], [Title], [Content], [Categories], [Type], [IssueDate]) VALUES (1, N'测试时事新闻', N'测试时事新闻', N'时事新闻', N'国际新闻', CAST(0x0000A78600000000 AS DateTime))
+INSERT [dbo].[tb_News] ([ID], [Title], [Content], [Categories], [Type], [IssueDate]) VALUES (2, N'测试环球经济', N'测试环球经济', N'环球经济', N'国际新闻', CAST(0x0000A78600000000 AS DateTime))
+INSERT [dbo].[tb_News] ([ID], [Title], [Content], [Categories], [Type], [IssueDate]) VALUES (3, N'测试军事世界', N'测试军事世界', N'军事世界', N'国际新闻', CAST(0x0000A78600000000 AS DateTime))
+INSERT [dbo].[tb_News] ([ID], [Title], [Content], [Categories], [Type], [IssueDate]) VALUES (4, N'测试科学技术', N'测试科学技术', N'科学技术', N'国际新闻', CAST(0x0000A78600000000 AS DateTime))
+INSERT [dbo].[tb_News] ([ID], [Title], [Content], [Categories], [Type], [IssueDate]) VALUES (5, N'测试生活理财', N'测试生活理财', N'生活理财', N'国际新闻', CAST(0x0000A78600000000 AS DateTime))
+INSERT [dbo].[tb_News] ([ID], [Title], [Content], [Categories], [Type], [IssueDate]) VALUES (6, N'测试社会百态', N'测试社会百态', N'社会百态', N'国际新闻', CAST(0x0000A78600000000 AS DateTime))
+INSERT [dbo].[tb_News] ([ID], [Title], [Content], [Categories], [Type], [IssueDate]) VALUES (7, N'测试世界体育', N'测试世界体育', N'世界体育', N'国际新闻', CAST(0x0000A78600000000 AS DateTime))
+INSERT [dbo].[tb_News] ([ID], [Title], [Content], [Categories], [Type], [IssueDate]) VALUES (8, N'测试娱乐综艺', N'测试娱乐综艺', N'娱乐综艺', N'国际新闻', CAST(0x0000A78600000000 AS DateTime))
+SET IDENTITY_INSERT [dbo].[tb_News] OFF
+/****** Object:  Default [DF_tb_News_IssueDate]    Script Date: 06/27/2017 18:12:49 ******/
+ALTER TABLE [dbo].[tb_News] ADD  CONSTRAINT [DF_tb_News_IssueDate]  DEFAULT (getdate()) FOR [IssueDate]
+GO
+/****** Object:  Default [DF_tb_User_addDate]    Script Date: 06/27/2017 18:12:49 ******/
+ALTER TABLE [dbo].[tb_User] ADD  CONSTRAINT [DF_tb_User_addDate]  DEFAULT (getdate()) FOR [Date]
+GO
